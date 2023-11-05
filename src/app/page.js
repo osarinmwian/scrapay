@@ -1,12 +1,34 @@
 
 "use client";
-
+import React, { useState } from 'react';
 import {FaFacebookF, FaGoogle, FaLinkedinIn, FaRegEnvelope } from 'react-icons/fa';
 import { useRouter } from 'next/navigation'
 import {MdLockOutline } from 'react-icons/md'
-
+import { isEmailValid } from '../validation/index';
 export default function Home() {
   const router = useRouter();
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if(formData.email === ""){
+      setEmailError('Enter a valid email address');
+      return;
+    }
+    if(formData.password === ""){
+      setPasswordError('Enter Password');
+      return;
+    }
+    if (!isEmailValid(formData.email)) {
+      setEmailError('Invalid email address');
+      return;
+    }
+    
+
+    router.push('/dashboard')
+  };
   return (
     <div className="flex min-h-screen bg-white flex-col   items-center justify-between p-24">
     <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
@@ -42,9 +64,15 @@ export default function Home() {
             id="email"
             type="email"
             placeholder="Email"
-            
+            value={formData.email}
+            onChange={(e) => {
+              setFormData({ ...formData, email: e.target.value });
+              setEmailError('');
+            }}
           />
+          
     </div>
+    {emailError && <p className="text-red-500 text-xs mt-1 text-left mb-1">{emailError}</p>}
     <div className='bg-gray-100 w-64 p-2 flex items-center ' >
 <MdLockOutline className='text-gray-400 m-2'/>
 <input
@@ -52,13 +80,23 @@ export default function Home() {
             id="password"
             type="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={(e) => {
+              setFormData({ ...formData, password: e.target.value });
+              setPasswordError('');
+            }}
             
           />
+          
     </div>
+    {passwordError && <p className="text-red-500 text-xs mt-1 text-left mb-1">{passwordError}</p>}
   </div>
 </div>
 <a href='#' className='border-2 border-green-500 rounded-full px-12 py-2 
- inline-block font-semibold  text-green-500 hover:bg-green-500 hover:text-white'>
+ inline-block font-semibold  text-green-500 hover:bg-green-500 hover:text-white '
+ onClick={handleSubmit}
+ >
+  
 SignIn
  </a>
       </div>
@@ -69,7 +107,8 @@ SignIn
  <p  className='mb-10 text-1 '>Fill up the information below</p>
  <a href='#' className='border-2 border-white rounded-full px-12 py-2 
  inline-block font-semibold  hover:bg-white hover:text-green-500'
- onClick={() => router.push('/signup')}>
+ onClick={()=> router.push('/signup')}
+ >
 SignUp
  </a>
       </div>

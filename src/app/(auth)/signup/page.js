@@ -64,7 +64,7 @@ export default function SignUp() {
 </div>
 <a href='#' className='border-2 border-green-500 rounded-full px-12 py-2 mt-5 mb-5 
  inline-block font-semibold  text-green-500 hover:bg-green-500 hover:text-white'
- onClick={() => router.push('/dashboard')}>
+ onClick={() => router.push('/')}>
 SignUp
  </a>
       </div>

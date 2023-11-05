@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { UserProvider } from "@auth0/nextjs-auth0/client";
-
+import { Providers } from "../store/redux/provider"
 const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +12,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <UserProvider> 
+        <Providers>
+
+      
       <body className={inter.className}>{children}</body>
+      </Providers>
       </UserProvider>
     </html>
   )
