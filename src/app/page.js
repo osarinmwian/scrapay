@@ -1,9 +1,6 @@
 
 "use client";
-import SignIn from '@/app/(auth)/signIn/page'
-import Sidebar from '@/component/SIdeBar'
-import Dashboard from '@/dashboard/page'
-import Image from 'next/image'
+
 import {FaFacebookF, FaGoogle, FaLinkedinIn, FaRegEnvelope } from 'react-icons/fa';
 import { useRouter } from 'next/navigation'
 import {MdLockOutline } from 'react-icons/md'
@@ -15,9 +12,9 @@ export default function Home() {
     <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
       <div className='bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl '>  
       <div className=' w-2/3 p-5'>
-{/* sihn up */}
+
 <div className='text-left font-bold'>
-<span className='  text-green-500'> CompanyName</span>
+<span className='  text-green-500'> Halloway</span>
 </div>
 <div className='py-10'>
   <h1 className= 'text-2xl font-bold text-green-500'>
@@ -61,12 +58,11 @@ export default function Home() {
   </div>
 </div>
 <a href='#' className='border-2 border-green-500 rounded-full px-12 py-2 
- inline-block font-semibold  text-green-500 hover:bg-green hover:text-green-500'>
+ inline-block font-semibold  text-green-500 hover:bg-green-500 hover:text-white'>
 SignIn
  </a>
       </div>
       <div className=' w-2/5 bg-green-500 text-white rounded-tr-2xl  rounded-br-2xl  py-36 px-10 ' >
-{/* sign in */}
 <h1 className='text-2xl font-bold mb-2 flex-row'>Welcome!</h1>
 <div className='border-2 w-10 border-white inline-block mb-2'/>
 
