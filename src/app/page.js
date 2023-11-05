@@ -13,8 +13,9 @@ export default function Home() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(formData.email === ""){
-      setEmailError('Enter a valid email address');
+    if(formData.email === "" ){
+      setEmailError('Enter Email');
+      setPasswordError('Enter Password');
       return;
     }
     if(formData.password === ""){
@@ -72,7 +73,7 @@ export default function Home() {
           />
           
     </div>
-    {emailError && <p className="text-red-500 text-xs mt-1 text-left mb-1">{emailError}</p>}
+    {emailError && <p className="text-red-500 text-xs mt-1  mb-2 text-left px-0">{emailError}</p>}
     <div className='bg-gray-100 w-64 p-2 flex items-center ' >
 <MdLockOutline className='text-gray-400 m-2'/>
 <input
@@ -89,7 +90,7 @@ export default function Home() {
           />
           
     </div>
-    {passwordError && <p className="text-red-500 text-xs mt-1 text-left mb-1">{passwordError}</p>}
+    {passwordError && <p className="text-red-500 text-xs mt-2 text-left  px-0 mb-1">{passwordError}</p>}
   </div>
 </div>
 <a href='#' className='border-2 border-green-500 rounded-full px-12 py-2 
