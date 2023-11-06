@@ -3,9 +3,9 @@ import React, { useState } from 'react';
 import { FaRegEnvelope,  } from 'react-icons/fa';
 import { useRouter } from 'next/navigation'
 
-import {MdLockOutline } from 'react-icons/md'
+import {MdLockOutline, MdCall } from 'react-icons/md'
 import {BsFillPersonCheckFill} from 'react-icons/bs'
-import {IoIosCall} from 'react-icons/Io'
+
 
 export default function SignUp() {
   const router = useRouter();
@@ -105,7 +105,7 @@ export default function SignUp() {
     </div>
     {passwordError && <p className="text-red-500 text-xs mt-2 mb-2">{passwordError}</p>}
     <div className='bg-gray-100 w-64 p-2 flex items-center mb-2' >
-<IoIosCall className='text-gray-400 m-2'/>
+<MdCall className='text-gray-400 m-2'/>
 <input
   className='bg-gray-100 outline-none text-sm text-black'
             id="phoneNumber"
