@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import {FaFacebookF, FaGoogle, FaLinkedinIn, FaRegEnvelope } from 'react-icons/fa';
 import { useRouter } from 'next/navigation'
 import {MdLockOutline } from 'react-icons/md'
-import { isEmailValid } from '../validation/index';
+import { isEmailValid } from '../validation/index'
+import {useUser} from '@auth0/nextjs-auth0/client'
 export default function Home() {
   const router = useRouter();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
-  
+  const {user, error, isLoading} = useUser();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(formData.email === "" ){
@@ -31,6 +32,12 @@ export default function Home() {
     router.push('/dashboard')
   };
   return (
+    <div>
+      <a href=''>
+
+
+      </a>
+   
     <div className="flex min-h-screen bg-white flex-col   items-center justify-between p-24">
     <main className='flex flex-col items-center justify-center w-full flex-1 px-20 text-center'>
       <div className='bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl '>  
@@ -118,6 +125,6 @@ SignUp
     </main>
       </div>
 
- 
+      </div>
   )
 }
